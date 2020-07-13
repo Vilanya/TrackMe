@@ -1,0 +1,26 @@
+body { background-color: grey;}
+h1 {
+    color: white;
+    font-size: 30px;
+}
+#p1 {
+    color: lightblue;
+    text-align: left;
+    font-size: 18px;
+  }
+#p2 {
+    color: lightpink;
+    text-align: left;
+    font-size: 18px;
+}
+#p3 {
+    color: lightgoldenrodyellow;
+    text-align: left;
+    font-size: 18px;
+}
+ul {
+    color: lightgoldenrodyellow;
+    font-size: 13px;
+    list-style-type: square;
+}
+
