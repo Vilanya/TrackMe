@@ -3,7 +3,7 @@ $('#footer').load('footer.html');
 
 //const { response } = require("express");
 
-const API_URL = 'https://api-omega-eight.vercel.app/api'; //'http://localhost:5000/api';
+const API_URL = 'https://api-pied.vercel.app/api'; //'http://localhost:5000/api';
 
 const currentUser = localStorage.getItem('user');
 
