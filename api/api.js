@@ -161,7 +161,8 @@ app.post('/api/registration', (req, res) => {
                     return res.send(err);
                 }
                 else if (found) {
-                    return res.send('User already exists');
+                    message = 'User already exists';
+                    return res.send(message);
                 }
                 else {
                     const newUser = new User({
