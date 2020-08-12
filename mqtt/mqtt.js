@@ -59,6 +59,25 @@ client.on('message', (topic, message) => {
     } 
 });     
 
+app.use(express.static(`${__dirname}/public/generated-docs`));
+
+app.get('/docs', (req, res) => { 
+    res.sendFile(`${__dirname}/public/generated-docs/index.html`);
+});
+
+/**
+* @api {post} /send-command Device send a command
+* @apiGroup Device
+* @apiSuccessExample {json} Success-Response:
+*   { 
+*       "published new message"
+*   }
+* @apiErrorExample {json} Error-Response: 
+*   {
+*       "Device does not exist" 
+*   }
+*/
+
 app.post('/send-command', (req, res) => { 
     const { deviceId, command } = req.body; 
     const topic = `/218664185/command/${deviceId}`; 
@@ -68,14 +87,15 @@ app.post('/send-command', (req, res) => {
 });
 
 
+
 /**
-* @mqtt {put} /sensor-data Device sensor-data
-* @mqttGroup Device
-* @mqttSuccessExample {json} Success-Response:
+* @api {put} /sensor-data Device sensor-data
+* @apiGroup Device
+* @apiSuccessExample {json} Success-Response:
 *   { 
 *       "published new message"
 *   }
-* @mqttErrorExample {json} Error-Response: 
+* @apiErrorExample {json} Error-Response: 
 *   {
 *       "Device does not exist" 
 *   }
