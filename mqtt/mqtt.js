@@ -67,6 +67,20 @@ app.post('/send-command', (req, res) => {
     });
 });
 
+
+/**
+* @mqtt {put} /sensor-data Device sensor-data
+* @mqttGroup Device
+* @mqttSuccessExample {json} Success-Response:
+*   { 
+*       "published new message"
+*   }
+* @mqttErrorExample {json} Error-Response: 
+*   {
+*       "Device does not exist" 
+*   }
+*/
+
 app.put('/sensor-data', (req, res) => { 
     const { deviceId } = req.body;
 
