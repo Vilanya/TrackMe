@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect('mongodb+srv://Vilanya:Vilanya3Naruto@cluster0.cyceo.mongodb.net', { useNewUrlParser: true, useUnifiedTopology: true });
 
 const express = require('express');
 
