@@ -5,6 +5,8 @@ $('#footer').load('footer.html');
 
 const API_URL = 'https://api-pied.vercel.app/api'; //'http://localhost:5000/api';
 
+const MQTT_URL = `http://localhost:5001/send-command`;
+
 const currentUser = localStorage.getItem('user');
 
 if (currentUser) { 
@@ -86,6 +88,9 @@ $('#add-device').on('click', () => {
 $('#send-command').on('click', function() { 
     const command = $('#command').val(); 
     console.log(`command is: ${command}`);
+    const deviceId = $('#deviceId').val(); 
+    $.post(MQTT_URL, { deviceId, command }) 
+
 });
 
 $('#register').on('click', () => {

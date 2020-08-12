@@ -6,6 +6,13 @@ const express = require('express');
 
 const app = express();
 
+app.use(express.static('public'));
+app.use((req, res, next) => { 
+    res.header("Access-Control-Allow-Origin", "*"); 
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept"); 
+    next();
+});
+
 const bodyParser = require('body-parser'); 
 app.use(bodyParser.urlencoded({ extended: false })) 
 app.use(bodyParser.json())
@@ -113,9 +120,10 @@ app.post('/api/devices', (req, res) => {
 *       "User does not exist" 
 *   }
 */
-app.post('/api/send-command', (req, res) => { 
-    console.log(req.body);
-});
+
+// app.post('/api/send-command', (req, res) => { 
+//     console.log(req.body);
+// });
 
 app.post('/api/authenticate', (req, res) => { 
     const { user, password } = req.body; 
